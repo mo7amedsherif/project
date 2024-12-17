@@ -13,8 +13,8 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  final List<AudioPlayer> _player = List.generate(6, (_) => AudioPlayer());
-  final List<bool> isPlaying = List.generate(6, (_) => false);
+  final List<AudioPlayer> _player = List.generate(8, (_) => AudioPlayer());
+  final List<bool> isPlaying = List.generate(8, (_) => false);
 
   Future<void> playSound(int index, String audiopath) async {
     if (!isPlaying[index]) {
@@ -81,26 +81,29 @@ class MyAppState extends State<MyApp> {
         body: ListView(
           padding: const EdgeInsets.all(10),
           children: [
-            _audiosourc(
-                0, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(0, 'assets/image/img1.png', 'assets/audio/aud1.mp3',
+                'التركيز الفائق: كيف تكون أكثر إنتاجية في عالم من التشتت'),
             const SizedBox(height: 20),
-            _audiosourc(
-                1, 'assets/image/mo.jpg', 'assets/audio/mo2.mp3', 'book1'),
+            _audiosourc(1, 'assets/image/img2.png', 'assets/audio/aud2.mp3',
+                'مراجعة الكاريزما الأكثر تأثيرًا '),
             const SizedBox(height: 20),
-            _audiosourc(
-                2, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(2, 'assets/image/img3.png', 'assets/audio/aud3.mp3',
+                'كيف يعمل الخوف؟ ثقافة الخوف في القرن الواحد والعشرين'),
             const SizedBox(height: 20),
-            _audiosourc(
-                3, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(3, 'assets/image/img4.png', 'assets/audio/aud4.mp3',
+                'مراجعة علم نفس الغباء '),
             const SizedBox(height: 20),
-            _audiosourc(
-                4, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(4, 'assets/image/img5.png', 'assets/audio/aud5.mp3',
+                'صيام الدوبامين: وصفة التحكم في المادة السحرية للتركيز والسعادة والنشاط'),
             const SizedBox(height: 20),
-            _audiosourc(
-                5, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(5, 'assets/image/img6.png', 'assets/audio/aud6.mp3',
+                'خازوقولوجي: علم دراسة الخازوق'),
             const SizedBox(height: 20),
-            _audiosourc(
-                6, 'assets/image/mo.jpg', 'assets/audio/mo1.mp3', 'book1'),
+            _audiosourc(5, 'assets/image/img7.png', 'assets/audio/aud7.mp3',
+                'ماذا حدث لك؟ محادثات حول الصدمة، الصمود، والشفاء'),
+            const SizedBox(height: 20),
+            _audiosourc(5, 'assets/image/img8.png', 'assets/audio/aud8.mp3',
+                'لماذا لا تذهب الخراف إلى الطبيب'),
             const SizedBox(height: 20),
           ],
         ),
@@ -123,7 +126,8 @@ class MyAppState extends State<MyApp> {
     );
   }
 
-  Widget _audiosourc(int index, String imagepath, String audiopath, String name) {
+  Widget _audiosourc(
+      int index, String imagepath, String audiopath, String name) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -168,11 +172,11 @@ class MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: () => playSound(index, audiopath),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255,255, 202, 40),
+                  backgroundColor: const Color.fromARGB(255, 255, 202, 40),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  ),
+                ),
                 child: const Icon(
                   Icons.play_circle_outline,
                   color: Colors.lightGreen,
@@ -184,7 +188,8 @@ class MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: () => stopSound(index),
-                style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255,255, 202, 40)),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 202, 40)),
                 child: const Icon(
                   Icons.stop_circle_outlined,
                   color: Colors.red,
